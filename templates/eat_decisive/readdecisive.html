@@ -1,0 +1,65 @@
+{% extends 'eat_decisive/base.html' %}
+
+<!DOCTYPE html>
+
+{% load staticfiles %}
+{% block title %}Read Decisive{% endblock title %}
+
+
+{% block navbar %}
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" id="branded" href="{% url 'readdecisive' %}">Read Decisive</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'eat_index' %}">Back to Eat Decisive</a></li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+{% endblock navbar %}
+
+{% block body_block %}
+
+<body style="{% static 'images/books.jpg' %}">
+
+  <div class="container-fluid">
+    <span class="landingpage">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="transbox">
+            <h1 class="titlecenter">READ * DECISIVE</h1>
+            <p class="lead center">
+            Hello, indecisive reader! Can't choose between The Great Gatsby or Great Expectations? Or are you simply too lazy to decide what to read next? Not to worry.<br>We'll help you <span id="feature">find the perfect book. </span><br>Simply grant us access to your Goodreads account by clicking below. Here's to reading more decisive(ly)!
+            </p>
+          </div>
+          <form action="/goodreadslogin/" role="form" method="get">
+          {% csrf_token %}
+          <div class="centered">
+            <input type="submit" class="ghost-button" name="formsubmit" value="Authorize access to your Goodreads account"></input>
+          </div>
+
+          </form>
+    </span>
+        <div class="transbox text-center">
+          <p>Not a member of Goodreads? Not a problem...we can still help you pick a book! <a href="/popularbookgenerator/">Here's a book suggestion, randomly selected from Goodreads' list of most popular books in the U.S.</a></p>
+        </div>
+        <form action="/popularbookgenerator/">
+          <div class="centered">
+            <input type="submit" class="ghost-button" value="Find a random book for me!"></input>
+          </div>
+        </form>
+      </div>
+    </div>  
+  </div>
+</body>
+{% endblock body_block %}

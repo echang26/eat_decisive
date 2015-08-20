@@ -1,0 +1,68 @@
+{% extends 'eat_decisive/base.html' %}
+
+<!DOCTYPE html>
+
+{% load staticfiles %}
+{% block title %}Eat Decisive{% endblock title %}
+
+{% block navbar %}
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" id="branded" href="{% url 'eat_index' %}">Eat Decisive</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'readdecisive' %}">Read Decisive</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+{% endblock navbar %}
+
+
+{% block body_block %}
+
+  <div class="container-fluid">
+    <span class="landingpage">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="transbox">
+            <h1 class="titlecenter">EAT * DECISIVE</h1>
+            <p class="lead center">Chinese takeout or Turkish kebabs? Swiss or Cheddar? Fed up with making your own food decisions? Let us be your <span id="feature">stomach whisperer.</span> Enter your options, separated by asterisks (*), and let the Internet decide for you. Here's to eating more decisive(ly)!</p>
+          </div>
+          <form action="/getdecision/" role="form" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              <input type="text" class="form-control" name="searched" id="searched" placeholder="e.g. Pancakes * Eggs * Bacon * Sausage" />
+            </div>
+            <div class="centered">
+              <input type="submit" id="decideNow" class="ghost-button" name="formsubmit" value="Serve up my decision!"></input>
+            </div>
+            </div>
+            </div>
+          </form>
+    </span>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="transbox text-center">
+          <h1 class="subtitlecenter">Recently searched:</h1>
+             <p class="lead center">
+                {% if recentsearches %}
+                   {% for search in recentsearches %}
+                      {{ search }}<br>
+                   {% endfor %}
+                {% endif %}
+             </p>
+        </div>
+      </div>
+    </div>  
+  </div>
+
+{% endblock body_block %}

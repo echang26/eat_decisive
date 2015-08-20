@@ -1,0 +1,7 @@
+eat_decisive/local_settings.py
+/bin
+/include
+/lib
+/share
+*.pyc
+db.sqlite3
