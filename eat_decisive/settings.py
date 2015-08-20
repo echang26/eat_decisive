@@ -17,11 +17,11 @@ try:
 except ImportError:
     pass
 
-#BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
 #THIS ONE BELOW WORKED LAST 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+#BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 #print "BASE_DIR is ", BASE_DIR
 ##BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #print "NEW BASE_DIR is ", NEW_BASE_DIR
