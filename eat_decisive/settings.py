@@ -17,9 +17,11 @@ try:
 except ImportError:
     pass
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 
 #THIS ONE BELOW WORKED LAST 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+#BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 #print "BASE_DIR is ", BASE_DIR
 ##BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #print "NEW BASE_DIR is ", NEW_BASE_DIR
@@ -57,8 +59,6 @@ TEMPLATE_DEBUG = DEBUG
 if ENV_ROLE == 'development':
     DEBUG = True
     TEMPLATE_DEBUG = DEBUG
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -141,4 +141,22 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Absolute path to the media directory
 
-#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+# Parse database configuration from $DATABASE_URL
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
+
+# Static asset configuration
+STATIC_ROOT = 'staticfiles'
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'

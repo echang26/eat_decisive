@@ -5,3 +5,5 @@ eat_decisive/local_settings.py
 /share
 *.pyc
 db.sqlite3
+venv
+staticfiles
