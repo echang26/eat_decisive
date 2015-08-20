@@ -34,8 +34,6 @@ def get_env_variable(var_name):
         error_msg = "Set the %s environment variable" % var_name
         raise ImproperlyConfigured(error_msg)
 
-# Get ENV VARIABLES key
-ENV_ROLE = get_env_variable('ENV_ROLE')
 
 TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
 TEMPLATE_DIRS = (
@@ -56,9 +54,6 @@ DEBUG = False
 
 TEMPLATE_DEBUG = DEBUG
 
-if ENV_ROLE == 'development':
-    DEBUG = True
-    TEMPLATE_DEBUG = DEBUG
 
 
 # Application definition
