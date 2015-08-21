@@ -1,0 +1,63 @@
+{% extends 'eat_decisive/base.html' %}
+
+<!DOCTYPE html>
+
+{% load staticfiles %}
+{% block title %}Read Decisive{% endblock title %}
+
+{% block navbar %}
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" id="branded" href="{% url 'readdecisive' %}">Read Decisive</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'eat_index' %}">Back to Eat Decisive</a></li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+{% endblock nav_bar %}
+
+{% block body_block %}
+
+<body>
+
+  <div class="container-fluid">
+    <span class="landingpage">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="transbox">
+            <h1 class="titlecenter">READ * DECISIVE</h1>
+            <p class="lead center">
+              {{ welcome }}<br>Can't choose between The Great Gatsby or Great Expectations? Or are you simply too lazy to decide what to read next? Not to worry. We'll help you <span id="feature">find the perfect book. </span>Here's to reading more decisive(ly)!<br>
+            <a href="{% url 'randomtoread' %}">Behold as we work our librarian magic.</a></p>
+          </div>
+        </div>
+      </div>
+    </span>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="transbox text-center">
+            {% if books %}
+            <h1 class="subtitlecenter">Books to read:</h1>
+             <p class="lead center">
+                   {% for book in books %}
+                      {{ book }}<br>
+                   {% endfor %}
+             </p>
+            {% endif %}
+        </div>
+      </div>
+    </div>  
+  </div>
+
+{% endblock body_block %}
