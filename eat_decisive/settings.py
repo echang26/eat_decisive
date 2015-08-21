@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os, sys
+import dj_database_url
 from django.core.exceptions import ImproperlyConfigured
 
 try:
@@ -88,7 +89,7 @@ WSGI_APPLICATION = 'eat_decisive.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-DATABASES = {'default': dj_database_url.config(default=os.environ['DATABASE_URL'])}
+#DATABASES = {'default': dj_database_url.config(default=os.environ['DATABASE_URL'])}
 
 '''
 DATABASES = {
@@ -139,7 +140,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Absolute path to the media directory
 
 # Parse database configuration from $DATABASE_URL
-import dj_database_url
 DATABASES['default'] =  dj_database_url.config()
 
 DATABASES['default']['ENGINE'] = 'django_postgrespool'
