@@ -13,10 +13,7 @@ import os, sys
 import dj_database_url
 from django.core.exceptions import ImproperlyConfigured
 
-try:
-    from local_settings import *
-except ImportError:
-    pass
+
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -90,12 +87,13 @@ WSGI_APPLICATION = 'eat_decisive.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 #DATABASES = {'default': dj_database_url.config(default=os.environ['DATABASE_URL'])}
+DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
 
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-    }
+#DATABASES = {
+#    "default": {
+#        "ENGINE": "django.db.backends.postgresql_psycopg2",
+#    }
 #    'default': {
 #        'ENGINE': 'django.db.backends.sqlite3',
 #        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
@@ -108,7 +106,7 @@ DATABASES = {
 #        "HOST": "localhost",
 #        "PORT": "5432",
 #    }
-}
+#}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -158,4 +156,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+try:
+    from local_settings import *
+except ImportError:
+    pass
 #STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
