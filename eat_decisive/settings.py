@@ -91,23 +91,23 @@ WSGI_APPLICATION = 'eat_decisive.wsgi.application'
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 #DATABASES = {'default': dj_database_url.config(default=os.environ['DATABASE_URL'])}
 
-'''
+
 DATABASES = {
-#    "default": {
-#        "ENGINE": "django.db.backends.postgresql_psycopg2",
-#    }
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+    }
 #    'default': {
 #        'ENGINE': 'django.db.backends.sqlite3',
 #        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #    }
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "foodqueries",
-        "USER": "echang26",
-        "PASSWORD": "",
-        "HOST": "localhost",
-        "PORT": "5432",
-    }
+#    "default": {
+#        "ENGINE": "django.db.backends.postgresql_psycopg2",
+#        "NAME": "foodqueries",
+#        "USER": "echang26",
+#        "PASSWORD": "",
+#        "HOST": "localhost",
+#        "PORT": "5432",
+#    }
 }
 '''
 # Internationalization
