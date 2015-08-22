@@ -156,6 +156,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+ADMINS = (('Emily', 'echang26@gmail.com'))
 try:
     from local_settings import *
 except ImportError:
