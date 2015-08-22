@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^login/', views.login, name='login'),
     url(r'^readdecisive/', views.readdecisive, name='readdecisive'),
     url(r'^goodreadslogin/', views.goodreads_login, name='goodreadslogin'),
+    url(r'^readdecisivemember/\?oauth_token', views.goodreads_redirect, name='goodreadsredirect'),
     url(r'^readdecisivemember/', views.readdecisivemember, name='readdecisivemember'),
     url(r'^popularbookgenerator/', views.random_popular_book, name='randompopularbook'),
     url(r'^whattoreadnext/', views.random_to_read, name='randomtoread'),
