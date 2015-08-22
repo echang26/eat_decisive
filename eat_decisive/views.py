@@ -146,7 +146,7 @@ def goodreads_login(request):
         # you need to access the authorize_link via a browser,
         # and proceed to manually authorize the consumer
 #        accepted = raw_input('Have you authorized me? (y/n) ')
-    return HttpResponseRedirect(authorize_url + '/')
+    return HttpResponseRedirect(authorize_url)
 
 def random_popular_book(request):
     book_soup = BeautifulSoup(page.content)
