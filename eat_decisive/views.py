@@ -183,4 +183,8 @@ def random_to_read(request):
     context_dict = {'name': username, 'title': random_book.title, 'author': random_book.author, 'url': random_book.url, 'average_rating': random_book.average_rating}
     return render(request, 'eat_decisive/whattoreadnext.html', context_dict)
 
+def handler404(request):
+    return render(request, '404.html')
 
+def handler500(request):
+    return render(request, '500.html')

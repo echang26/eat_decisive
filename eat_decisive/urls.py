@@ -5,6 +5,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from . import views
 
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.index, name = 'eat_index'),
@@ -27,3 +28,5 @@ if settings.DEBUG:
 if not settings.DEBUG:
         urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
+handler404 = 'views.handler404'
+handler500 = 'views.handler500'
