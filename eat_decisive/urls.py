@@ -1,9 +1,8 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-#from eat_decisive import views
 from django.conf import settings
 from django.conf.urls.static import static
-import views
+from . import views
 
 
 urlpatterns = [
@@ -28,5 +27,5 @@ if settings.DEBUG:
 if not settings.DEBUG:
         urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-handler404 = 'views.handler404'
-handler500 = 'views.handler500'
+handler404 = 'eat_decisive.views.handler404'
+handler500 = 'eat_decisive.views.handler500'
