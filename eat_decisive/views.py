@@ -150,6 +150,7 @@ def goodreads_login(request):
 
 def goodreads_redirect(request):
     url = request.get_full_path() + '/'
+    print "redirect url is ", url
     return HttpResponseRedirect(url)
 
 def random_popular_book(request):
