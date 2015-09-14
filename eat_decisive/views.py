@@ -140,6 +140,7 @@ def goodreads_login(request):
     request_token, request_token_secret = goodreads.get_request_token(header_auth=True)
     authorize_url = goodreads.get_authorize_url(request_token)
     accepted = True
+    print "WOO! Redirect url is ", authorize_url
 #    print 'Visit this URL in your browser: ' + authorize_url
 #    accepted = 'n'
 #    while accepted.lower() == 'n':
@@ -147,12 +148,12 @@ def goodreads_login(request):
         # and proceed to manually authorize the consumer
 #        accepted = raw_input('Have you authorized me? (y/n) ')
     return HttpResponseRedirect(authorize_url)
-
+'''
 def goodreads_redirect(request):
     url = request.get_full_path() + '/'
     print "redirect url is ", url
     return HttpResponseRedirect(url)
-
+'''
 def random_popular_book(request):
     book_soup = BeautifulSoup(page.content)
     book_links = book_soup.find_all("a", class_="bookTitle")
