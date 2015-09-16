@@ -192,6 +192,7 @@ def handler500(request):
     return render(request, '500.html')
 
 def read_alternative(request):
+    context_dict = {}
     return render(request, 'eat_decisive/readalternative.html', context_dict)
 
 def read_result(request):

@@ -30,7 +30,6 @@
 
 {% block body_block %}
 
-<body style="{% static 'images/books.jpg' %}">
 
   <div class="container-fluid">
     <span class="landingpage">
@@ -43,7 +42,7 @@
             </p>
           </div>
 
-          <form action="/readalternative/" role="form" method="post">
+          <form action="/readalternativeresult/" role="form" method="post">
             {% csrf_token %}
             <div class="form-group">
               <input type="text" class="form-control" name="username" id="username" placeholder="What's your Goodreads username?" />
