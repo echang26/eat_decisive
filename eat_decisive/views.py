@@ -206,10 +206,13 @@ def read_result(request):
             page = urllib2.urlopen(starting_url)
         except urllib2.HTTPError as e:
             if e.code == 404:
-                context_dict['error'] = "There was an error and the connection was refused."
+                context_dict = {}
                 print "There was an error and the connection was refused."
+                return render(request, 'eat_decisive/readalternativeerror.html', context_dict)
         except urllib2.URLError as e:
-            context_dict['error'] = "The connection was refused."
+            print "The connection was refused."
+            context_dict = {}
+            return render(request, 'eat_decisive/readalternativeerror.html', context_dict)            
         else:        
             url = page.geturl()
             user_id = [int(s) for s in url if s.isdigit()]
@@ -240,5 +243,7 @@ def read_result(request):
             context_dict['winnerurl'] = book_dict[winning_book]
     return render(request, 'eat_decisive/readalternativeresult.html', context_dict)
 
-
+def read_error(request):
+    context_dict = {}
+    return render(request, 'eat_decisive/readalternativeerror.html', context_dict)
 

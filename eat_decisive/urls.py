@@ -18,6 +18,8 @@ urlpatterns = [
     url(r'^whattoreadnext/', views.random_to_read, name='randomtoread'),
     url(r'^readalternative/', views.read_alternative, name='readalternative'),
     url(r'^readalternativeresult/', views.read_result, name='readalternativeresult'),
+    url(r'^readalternativeerror/', views.read_error, name='readalternativeresult'),
+
 ]
 
 if settings.DEBUG:
