@@ -16,6 +16,8 @@ urlpatterns = [
     url(r'^readdecisivemember/', views.readdecisivemember, name='readdecisivemember'),
     url(r'^popularbookgenerator/', views.random_popular_book, name='randompopularbook'),
     url(r'^whattoreadnext/', views.random_to_read, name='randomtoread'),
+    url(r'^readalternative/', views.read_alternative, name='readalternative'),
+    url(r'^readalternativeresult/', views.read_result, name='readalternativeresult'),
 ]
 
 if settings.DEBUG:

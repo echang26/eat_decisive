@@ -190,3 +190,52 @@ def handler404(request):
 
 def handler500(request):
     return render(request, '500.html')
+
+def read_alternative(request):
+    return render(request, 'eat_decisive/readalternative.html', context_dict)
+
+def read_result(request):
+    context_dict = {}
+    if request.method == 'POST':
+        username = request.POST['username']
+        starting_url = 'https://www.goodreads.com/' + username
+        try:
+            page = urllib2.urlopen(starting_url)
+        except urllib2.HTTPError as e:
+            if e.code == 404:
+                context_dict['error'] = "There was an error and the connection was refused."
+                print "There was an error and the connection was refused."
+        except urllib2.URLError as e:
+            context_dict['error'] = "The connection was refused."
+        else:        
+            url = page.geturl()
+            user_id = [int(s) for s in url if s.isdigit()]
+            user_id = ''.join(map(str, user_id))
+            print "user id is ", user_id
+            homepage = 'https://www.goodreads.com/'
+            to_read = 'https://www.goodreads.com/review/list/' + str(user_id) + '?shelf=to-read'
+            html = urllib2.urlopen(to_read).read()
+            book_soup = BeautifulSoup(html, "html.parser")
+            all_books = []
+            book_links = []
+            for book in book_soup.find_all('a'):
+                try:
+                    if '/book/show/' in book['href']:
+                        all_books.append(book['title'])
+                        book_links.append(homepage + book['href'])
+                except KeyError:
+                    pass
+            print "all books are ", all_books
+            book_dict = {}
+            for idx in range(len(book_links)):
+                book_dict[all_books[idx]] = book_links[idx]
+            winning_book = random.choice(all_books)
+            print "winning book is ", winning_book
+            print "winning book url is ", book_dict[winning_book]
+            context_dict['name'] = username
+            context_dict['winnerbook'] = winning_book
+            context_dict['winnerurl'] = book_dict[winning_book]
+    return render(request, 'eat_decisive/readalternativeresult.html', context_dict)
+
+
+

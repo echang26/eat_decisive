@@ -77,12 +77,13 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
 )
 
 ROOT_URLCONF = 'eat_decisive.urls'
 
 WSGI_APPLICATION = 'eat_decisive.wsgi.application'
-
+SECURE_SSL_REDIRECT = True
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
