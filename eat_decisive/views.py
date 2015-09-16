@@ -14,6 +14,8 @@ import requests
 import xml.etree.ElementTree as ET
 import random
 from urlparse import urlparse
+import urllib2
+
 #import settings
 
 def get_env_variable(var_name):
