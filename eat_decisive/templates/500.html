@@ -7,7 +7,16 @@
 {% block title %}Page not found{% endblock title %}
 
 {% block body_block %}
-<h1 style="color:white">Page not found</h1>
-
-<p style="color:white">Sorry, but we could not find the requested page. <a href="{% url 'readalternative' %}">Click here to try connecting to your Goodreads account by entering your Goodreads username.</a></p>
+  <div class="container-fluid">
+    <span class="landingpage">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="transbox">
+            <h1 class="titlecenter">Page not found</h1>
+            <p class="lead center">Sorry, but we could not find the requested page. <a href="{% url 'readalternative' %}">Click here to try connecting to your Goodreads account by entering your Goodreads username.</a></p>
+          </div>
+        </div>
+      </div>
+    </span>
+ </div>
 {% endblock body_block %}
