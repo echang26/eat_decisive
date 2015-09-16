@@ -7,7 +7,17 @@
 {% block title %}Page not found{% endblock %}
 
 {% block body_block %}
-<h1 style="color:white">Page not found</h1>
-
-<p style="color:white">Sorry, but the requested page could not be found. <a href="{% url 'readdecisive' %}">Click here to flip back to Read Decisive.</a></p>
+  <div class="container-fluid">
+    <span class="landingpage">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="transbox">
+            <h1 class="titlecenter">Looks like we're in a (book) bind.</h1>
+            <p style="color:white">Sorry, but the requested page could not be found. <a href="{% url 'readdecisive' %}">Click here to flip back to Read Decisive.</a></p>
+          </div>
+         </div>
+        </div>
+       </div>
+    </span>
+  </div>
 {% endblock body_block %}
