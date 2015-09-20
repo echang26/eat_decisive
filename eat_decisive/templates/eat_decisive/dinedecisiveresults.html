@@ -1,0 +1,55 @@
+{% extends 'eat_decisive/base.html' %}
+
+<!DOCTYPE html>
+
+{% load staticfiles %}
+{% block title %}Dine Decisive{% endblock title %}
+
+{% block navbar %}
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" id="branded" href="{% url 'readdecisive' %}">Read Decisive</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'eat_index' %}">Back to Eat Decisive</a></li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+{% endblock navbar %}
+
+{% block body_block %}
+
+<body>
+
+  <div class="container-fluid">
+    <span class="landingpage">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="transbox">
+            <h1 class="titlecenter">DINE * DECISIVE</h1>
+            <p class="lead center">Hello!<br>Here are the 'A'-grade restaurants that scored the critical error of "live roaches present" during a prior food inspection. Take this info with a grain of salt: these restaurants were given another chance to clean up their act, so that's probably why they now have an A grade.<br></p>
+
+                {% if results %}
+                   {% for item in results %}
+                      {{ item }}<br>
+                   {{ nonefound }}
+                   {% endfor %}
+
+                {% endif %}
+                <br>
+                View the full results at <a href="https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/xx67-kt59?">NYC Open Data.</a>
+             </p>
+        </div>
+      </div>
+    </div>  
+    {% endblock body_block %}
