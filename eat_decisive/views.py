@@ -247,3 +247,24 @@ def read_error(request):
     context_dict = {}
     return render(request, 'eat_decisive/readalternativeerror.html', context_dict)
 
+def foodgrades(request):
+    context_dict = {}  
+    return render(request, 'eat_decisive/dinedecisive.html', context_dict)
+
+def foodgraderesults(request):
+    context_dict = {}
+    if request.method == 'POST':
+        #allow patrons to select their own boro by setting form data to boro 
+        #and then setting roach_parameters['boro'] = request.POST['boro']
+        roach_parameters = {'boro': 'MANHATTAN', 'violation_code': '04M', 'grade': 'A'}
+        roach_parameters['zipcode'] = request.POST['zipcode']
+        roach_query = requests.get("https://data.cityofnewyork.us/resource/xx67-kt59.json", params=roach_parameters)
+        roach_data = roach_query.json()
+        roach_restaurants = []
+        for item in roach_data:
+            if item['dba'] not in roach_restaurants:
+                roach_restaurants.append(item['dba'])
+        context_dict['results'] = roach_restaurants
+        if len(roach_restaurants) == 0:
+            context_dict['nonefound'] = "Hooray! There were no restaurants found in your area."
+    return render(request, 'eat_decisive/dinedecisiveresults.html', context_dict)
