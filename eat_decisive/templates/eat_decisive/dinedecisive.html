@@ -37,7 +37,7 @@
         <div class="col-xs-12">
           <div class="transbox">
             <h1 class="titlecenter">DINE * DECISIVE</h1>
-            <p class="lead center">Hello!<br>Did you know that restaurants can still earn a grade of A as long as they don't score more than 13 infraction points? That means that an 'A' grade restaurant could still have scored critical errors like "live roaches present"! Enter your zipcode below to see which "A-grade" Manhattan restaurants had "live roaches" during at least one inspection, according to NYC Open Data's restaurant inspection results.
+            <p class="lead center">Hello!<br>Did you know that restaurants can still earn a grade of A as long as they don't score more than 13 infraction points? That means that an 'A' grade restaurant could still have scored critical errors like "live roaches present"! Enter your zipcode below to see which "A-grade" Manhattan restaurants had "live roaches" during at least one inspection, according to <a href="https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/xx67-kt59?">NYC Open Data's restaurant inspection results.</a>
           </div>
           <form action="{% url 'dinedecisiveresults' %}" role="form" method="post">
             {% csrf_token %}
