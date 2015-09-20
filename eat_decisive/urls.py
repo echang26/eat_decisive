@@ -19,7 +19,8 @@ urlpatterns = [
     url(r'^readalternative/', views.read_alternative, name='readalternative'),
     url(r'^readalternativeresult/', views.read_result, name='readalternativeresult'),
     url(r'^readalternativeerror/', views.read_error, name='readalternativeresult'),
-
+    url(r'^dinedecisive/', views.foodgrades, name='dinedecisive'),
+    url(r'^dinedecisiveresults/', views.foodgraderesults, name='dinedecisiveresults'),
 ]
 
 if settings.DEBUG:

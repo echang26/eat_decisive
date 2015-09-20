@@ -1,0 +1,60 @@
+{% extends 'eat_decisive/base.html' %}
+
+<!DOCTYPE html>
+
+{% load staticfiles %}
+{% block title %}Dine Decisive{% endblock title %}
+
+{% block navbar %}
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" id="branded" href="{% url 'readdecisive' %}">Read Decisive</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'eat_index' %}">Back to Eat Decisive</a></li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+{% endblock navbar %}
+
+{% block body_block %}
+
+<body>
+
+  <div class="container-fluid">
+    <span class="landingpage">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="transbox">
+            <h1 class="titlecenter">DINE * DECISIVE</h1>
+            <p class="lead center">Hello!<br>Did you know that restaurants can still earn a grade of A as long as they don't score more than 13 points? That means that an 'A' grade restaurant could still have scored critical errors like "live roaches present" and "evidence of mice or live mice present"!<br>Enter your zipcode below to see which Manhattan restaurants were found on NYC Open Data's restaurant inspection results
+          </div>
+          <form action="{% url 'dinedecisiveresults' %}" role="form" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              <input type="text" class="form-control" name="zipcode" id="zipcode" placeholder="What's your zipcode?" />
+            </div>
+
+            <div class="centered">
+              <input type="submit" class="ghost-button" name="formsubmit" value="Tell me what places to avoid!"></input>
+            </div>
+
+          </form>
+          </div>
+        </div>
+      </div>
+    </span>
+
+  </div>
+
+{% endblock body_block %}
