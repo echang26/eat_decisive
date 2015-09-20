@@ -35,7 +35,7 @@
         <div class="col-xs-12">
           <div class="transbox">
             <h1 class="titlecenter">EAT * DECISIVE</h1>
-            <p class="lead center">Chinese takeout or Turkish kebabs? Swiss or Cheddar? Fed up with making your own food decisions? Let us be your <span id="feature">stomach whisperer.</span> Enter your options, separated by asterisks (*), and let the Internet decide for you. Here's to eating more decisive(ly)!</p>
+            <p class="lead center">Chinese takeout or Turkish kebabs? Swiss or Cheddar? Fed up with making your own food decisions? Let us be your <span id="feature">stomach whisperer.</span> Enter your options, separated by asterisks (*), and let the Internet decide for you. Here's to eating more decisive(ly)!</p><br>P.S. Check out <a href="{% url 'dinedecisive' %}">Dine Decisive</a> here.</p>
           </div>
           <form action="/getdecision/" role="form" method="post">
             {% csrf_token %}
