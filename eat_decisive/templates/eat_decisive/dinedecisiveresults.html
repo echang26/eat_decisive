@@ -29,6 +29,8 @@
 
 {% block body_block %}
 
+{% if not fail_message %}
+
 <body>
 
   <div class="container-fluid">
@@ -52,4 +54,20 @@
         </div>
       </div>
     </div>  
+    {% else %}
+  <div class="container-fluid">
+    <span class="landingpage">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="transbox">
+            <p> {{ fail_message }} </p>
+          </div>
+        </div>
+      </div>
+    </span>
+  </div>
+      <div class="centered">
+      <a class="ghost-button" id="return" href="{% url 'dinedecisive' %}" role="button">Try entering your zip code again!</a>
+    </div>      
+{% endif %}
     {% endblock body_block %}

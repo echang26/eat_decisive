@@ -254,6 +254,9 @@ def foodgrades(request):
 def foodgraderesults(request):
     context_dict = {}
     if request.method == 'POST':
+        if len(request.POST['zipcode']) <= 5:
+            fail_message = "We're sorry...did you enter a valid zipcode? Please try again."
+            context_dict['fail_message'] = fail_message
         #allow patrons to select their own boro by setting form data to boro 
         #and then setting roach_parameters['boro'] = request.POST['boro']
         roach_parameters = {'boro': 'MANHATTAN', 'violation_code': '04M', 'grade': 'A'}
