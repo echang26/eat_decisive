@@ -18,12 +18,6 @@ from django.core.exceptions import ImproperlyConfigured
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
-#THIS ONE BELOW WORKED LAST 
-#BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-#print "BASE_DIR is ", BASE_DIR
-##BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-#print "NEW BASE_DIR is ", NEW_BASE_DIR
-
 def get_env_variable(var_name):
     """ Get the environment variable or return exception """
     try:
@@ -63,10 +57,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-#    'yelp_decisive',
     'eat_decisive',
-#    'provider',
-#    'provider.oauth2',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -91,27 +82,6 @@ SECURE_SSL_REDIRECT = True
 DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
 
 
-#DATABASES = {
-#    "default": {
-#        "ENGINE": "django.db.backends.postgresql_psycopg2",
-#    }
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#    }
-#    "default": {
-#        "ENGINE": "django.db.backends.postgresql_psycopg2",
-#        "NAME": "foodqueries",
-#        "USER": "echang26",
-#        "PASSWORD": "",
-#        "HOST": "localhost",
-#        "PORT": "5432",
-#    }
-#}
-
-# Internationalization
-# https://docs.djangoproject.com/en/1.7/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -132,8 +102,6 @@ STATICFILES_DIRS = (
     STATIC_PATH,
 )
 '''
-#STATIC_ROOT = 'staticfiles'
-#STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Absolute path to the media directory
@@ -161,4 +129,3 @@ try:
     from local_settings import *
 except ImportError:
     pass
-#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
